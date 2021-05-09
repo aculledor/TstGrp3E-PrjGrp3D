@@ -57,7 +57,7 @@ class Test_P6_P7_P8 {
 	class P6_ContarTotalIncidencias{
 		@Test
 		@DisplayName("CP084_P6_ContarTotalIncidencias: sin argumentos")
-		void testCP87ContarTotalIncidencias() throws Exception{
+		void testCP84ContarTotalIncidencias() throws Exception{
 			// Arrange
 			ArrayList<Incidencia> simIncidencias = new ArrayList<>();
 			for(int i = 1; i <= 10; i++) {
@@ -72,7 +72,7 @@ class Test_P6_P7_P8 {
 		
 		@Test
 		@DisplayName("CP084_P6_Rendimiento: sin argumentos y tiempo < 2s")
-		void testCP87Rendimiento() throws Exception{
+		void testCP84Rendimiento() throws Exception{
 			// Arrange
 			ArrayList<Incidencia> simIncidencias = new ArrayList<>();
 			for(int i = 1; i <= 10; i++) {
@@ -114,7 +114,7 @@ class Test_P6_P7_P8 {
 
 			@Test
 			@DisplayName("CP085_P7_ObtenerMediaCosteOOTT: entradas válidas")
-			void testCP88ObtenerMediaCosteOOTT() throws Exception{
+			void testCP85ObtenerMediaCosteOOTT() throws Exception{
 				// Act + Assert
 				assertEquals(total, GE.mediaCosteOT("USC"), "(CP85) El sumatorio del coste de las OTs no es correcto");
 				
@@ -137,7 +137,7 @@ class Test_P6_P7_P8 {
 
 			@Test
 			@DisplayName("CP086_P7_ObtenerMediaCosteOOTT: String de size > 30")
-			void testCP89ObtenerMediaCosteOOTT() throws Exception{
+			void testCP86ObtenerMediaCosteOOTT() throws Exception{
 				// Act + Assert
 				assertThrows(Exception.class , ()->GE.mediaCosteOT("CentralLecheraAsturiana2.0Súper"), "(CP86) No lanza excepcion con una entrada de un String con tamaño > 30");
 				
@@ -145,7 +145,7 @@ class Test_P6_P7_P8 {
 
 			@Test
 			@DisplayName("CP087_P7_ObtenerMediaCosteOOTT: String null")
-			void testCP90ObtenerMediaCosteOOTT() throws Exception{
+			void testCP87ObtenerMediaCosteOOTT() throws Exception{
 				// Act + Assert
 				assertThrows(Exception.class, ()->GE.mediaCosteOT(null), "(CP87) No lanza excepcion con una entrada de un valor nulo");
 				
@@ -187,14 +187,14 @@ class Test_P6_P7_P8 {
 
 			@Test
 			@DisplayName("CP088_P8_ObtenerDistribucionOOTT: valores válidos")
-			void testCP91ObtenerDistribucionOOTT() throws Exception{
+			void testCP88ObtenerDistribucionOOTT() throws Exception{
 				// Assert
 				assertEquals(distribucion, GE.distribucionOT(true, false, "USC"), "(CP88) No devuelve el set de datos correctamente");
 			}
 
 			@Test
 			@DisplayName("CP088_P8_Rendimiento: valores válidos y tiempo < 2s")
-			void testCP91Rendimiento() throws Exception{
+			void testCP88Rendimiento() throws Exception{
 				// Assert
 				assertTimeoutPreemptively(Duration.ofSeconds(2), ()->GE.distribucionOT(true, false, "USC"), "(CP88) La realziación del proceso supera el límite temporal de respuesta requerido");
 			}
@@ -209,7 +209,7 @@ class Test_P6_P7_P8 {
 
 			@Test
 			@DisplayName("CP089_P8_ObtenerDistribucionOOTT: Días y Semanas false")
-			void testCP92ObtenerDistribucionOOTT() throws Exception{
+			void testCP89ObtenerDistribucionOOTT() throws Exception{
 				// Act + Assert
 				assertThrows(Exception.class, ()->GE.distribucionOT(false, false, "USC"), "(CP89) No lanza excepcion siendo tanto días como semanas false");
 				
@@ -217,7 +217,7 @@ class Test_P6_P7_P8 {
 
 			@Test
 			@DisplayName("CP090_P8_ObtenerDistribucionOOTT: Días y Semanas true")
-			void testCP93ObtenerDistribucionOOTT() throws Exception{
+			void testCP90ObtenerDistribucionOOTT() throws Exception{
 				// Act + Assert
 				assertThrows(Exception.class, ()->GE.distribucionOT(true, true, "USC"), "(CP90) No lanza excepcion siendo tanto días como semanas true");
 				
@@ -225,7 +225,7 @@ class Test_P6_P7_P8 {
 
 			@Test
 			@DisplayName("CP091_P8_ObtenerDistribucionOOTT: Días null")
-			void testCP94ObtenerDistribucionOOTT() throws Exception{
+			void testCP91ObtenerDistribucionOOTT() throws Exception{
 				// Act + Assert
 				assertThrows(Exception.class, ()->GE.distribucionOT(null, false, "USC"), "(CP91) No lanza excepcion siendo tanto días null");
 				
@@ -233,7 +233,7 @@ class Test_P6_P7_P8 {
 
 			@Test
 			@DisplayName("CP092_P8_ObtenerDistribucionOOTT: Semanas null")
-			void testCP95ObtenerDistribucionOOTT() throws Exception{
+			void testCP92ObtenerDistribucionOOTT() throws Exception{
 				// Act + Assert
 				assertThrows(Exception.class, ()->GE.distribucionOT(false, null, "USC"), "(CP92) No lanza excepcion siendo semanas null");
 				
@@ -241,7 +241,7 @@ class Test_P6_P7_P8 {
 
 			@Test
 			@DisplayName("CP093_P8_ObtenerDistribucionOOTT: EmpresaResponsable size > 30")
-			void testCP96ObtenerDistribucionOOTT() throws Exception{
+			void testCP93ObtenerDistribucionOOTT() throws Exception{
 				// Act + Assert
 				assertThrows(Exception.class, ()->GE.distribucionOT(true, false, "CentralLecheraAsturiana2.0Super"), "(CP93) No lanza excepcion siendo el tamaño de empresaResponsable > 30");
 				
@@ -249,7 +249,7 @@ class Test_P6_P7_P8 {
 
 			@Test
 			@DisplayName("CP094_P8_ObtenerDistribucionOOTT: EmpresaResponsable size > 30")
-			void testCP97ObtenerDistribucionOOTT() throws Exception{
+			void testCP94ObtenerDistribucionOOTT() throws Exception{
 				// Act + Assert
 				assertThrows(Exception.class, ()->GE.distribucionOT(true, false, null), "(CP94) No lanza excepcion siendo empresaResponsable null");
 				

@@ -58,13 +58,13 @@ class Test_P10_DistribucionMediaCosteOT {
 
 		Exception e = assertThrows(Exception.class, () -> {
 			GE.distribucionMediaCosteOT(null, null, null);
-		}, "(CP118) La distribuci髇 de la media de coste de las OOTT con valores no v醠idos y caso: "
+		}, "(CP118) La distribuci贸n de la media de coste de las OOTT con valores no v谩lidos y caso: "
 				+ "(dias = null, semanas = null, empresaResponsable = null, ordenes = null) "
-				+ "no lanza una excepci髇.");
+				+ "no lanza una excepci贸n.");
 		assertEquals("Los valores de dias y semanas no puede ser null.", e.getMessage(),
-				"(CP118) La distribuci髇 de la media de coste de las OOTT con valores no v醠idos y caso: "
+				"(CP118) La distribuci贸n de la media de coste de las OOTT con valores no v谩lidos y caso: "
 						+ "(dias = null, semanas = null, empresaResponsable = null, ordenes = null) "
-						+ "tiene un mensaje de excepci髇 err髇eo.");
+						+ "tiene un mensaje de excepci贸n err贸neo.");
 	}
 	
 	@Test
@@ -79,13 +79,13 @@ class Test_P10_DistribucionMediaCosteOT {
 
 		Exception e = assertThrows(Exception.class, () -> {
 			GE.distribucionMediaCosteOT(false, false, "CentralLecheraAsturiana2.0Super");
-		}, "(CP119) La distribuci髇 de la media de coste de las OOTT con valores no v醠idos y caso: "
+		}, "(CP119) La distribuci贸n de la media de coste de las OOTT con valores no v谩lidos y caso: "
 				+ "(dias = false, semanas = false, empresaResponsable = 'CentralLecheraAsturiana2.0Super', ordenes = null) "
-				+ "no lanza una excepci髇.");
+				+ "no lanza una excepci贸n.");
 		assertEquals("empresa responsable no valida", e.getMessage(),
-				"(CP119) La distribuci髇 de la media de coste de las OOTT con valores no v醠idos y caso: "
+				"(CP119) La distribuci贸n de la media de coste de las OOTT con valores no v谩lidos y caso: "
 						+ "(dias = false, semanas = false, empresaResponsable = 'CentralLecheraAsturiana2.0Super', ordenes = null) "
-						+ "tiene un mensaje de excepci髇 err髇eo.");
+						+ "tiene un mensaje de excepci贸n err贸neo.");
 	}
 	
 	@Test
@@ -100,13 +100,13 @@ class Test_P10_DistribucionMediaCosteOT {
 
 		Exception e = assertThrows(Exception.class, () -> {
 			GE.distribucionMediaCosteOT(true, true, "USC");
-		}, "(CP120) La distribuci髇 de la media de coste de las OOTT con valores no v醠idos y caso: "
+		}, "(CP120) La distribuci贸n de la media de coste de las OOTT con valores no v谩lidos y caso: "
 				+ "(dias = true, semanas = true, empresaResponsable = 'USC', ordenes = null) "
-				+ "no lanza una excepci髇.");
+				+ "no lanza una excepci贸n.");
 		assertEquals("No se puede dar al mismo tiempo la distribucion por dias y semanas", e.getMessage(),
-				"(CP120) La distribuci髇 de la media de coste de las OOTT con valores no v醠idos y caso: "
+				"(CP120) La distribuci贸n de la media de coste de las OOTT con valores no v谩lidos y caso: "
 						+ "(dias = true, semanas = true, empresaResponsable = 'USC', ordenes = null) "
-						+ "tiene un mensaje de excepci髇 err髇eo.");
+						+ "tiene un mensaje de excepci贸n err贸neo.");
 	}
 	
 	@Test
@@ -121,13 +121,13 @@ class Test_P10_DistribucionMediaCosteOT {
 
 		Exception e = assertThrows(Exception.class, () -> {
 			GE.distribucionMediaCosteOT(false, false, null);
-		}, "(CP121) La distribuci髇 de la media de coste de las OOTT con valores no v醠idos y caso: "
+		}, "(CP121) La distribuci贸n de la media de coste de las OOTT con valores no v谩lidos y caso: "
 				+ "(dias = false, semanas = false, empresaResponsable = null, ordenes = null) "
-				+ "no lanza una excepci髇.");
+				+ "no lanza una excepci贸n.");
 		assertEquals("Es necesario indicar si la distribucion es por dias o por semanas", e.getMessage(),
-				"(CP121) La distribuci髇 de la media de coste de las OOTT con valores no v醠idos y caso: "
+				"(CP121) La distribuci贸n de la media de coste de las OOTT con valores no v谩lidos y caso: "
 						+ "(dias = false, semanas = false, empresaResponsable = null, ordenes = null) "
-						+ "tiene un mensaje de excepci髇 err髇eo.");
+						+ "tiene un mensaje de excepci贸n err贸neo.");
 	}
 	
 	@Test
@@ -149,7 +149,7 @@ class Test_P10_DistribucionMediaCosteOT {
 		// Assert
 
 		assertEquals(resultado, resultadoEsperado, 
-				"(CP122) La distribuci髇 de la media de coste de las OOTT con valores v醠idos y caso: "
+				"(CP122) La distribuci贸n de la media de coste de las OOTT con valores v谩lidos y caso: "
 				+ "(dias = true, semanas = false, empresaResponsable = null, ordenes = {OT1 (fechaInicio=12/08/2021)}) "
 				+ "no da el resultado esperado.");
 	}
@@ -174,7 +174,7 @@ class Test_P10_DistribucionMediaCosteOT {
 		// Assert
 
 		assertEquals(resultado, resultadoEsperado, 
-				"(CP123) La distribuci髇 de la media de coste de las OOTT con valores v醠idos y caso: "
+				"(CP123) La distribuci贸n de la media de coste de las OOTT con valores v谩lidos y caso: "
 				+ "(dias = true, semanas = false, empresaResponsable = null,ordenes = {OT1 (fechaInicio=12/08/2021), OT2(fechaInicio=12/08/2021)}) "
 				+ "no da el resultado esperado.");
 	}
@@ -200,7 +200,7 @@ class Test_P10_DistribucionMediaCosteOT {
 		// Assert
 
 		assertEquals(resultado, resultadoEsperado, 
-				"(CP124) La distribuci髇 de la media de coste de las OOTT con valores v醠idos y caso: "
+				"(CP124) La distribuci贸n de la media de coste de las OOTT con valores v谩lidos y caso: "
 				+ "(dias = true, semanas = false, empresaResponsable = null, ordenes = {OT1 (fechaInicio=12/08/2021), OT2(fechaInicio=27/09/2021)}) "
 				+ "no da el resultado esperado.");
 	}
@@ -224,7 +224,7 @@ class Test_P10_DistribucionMediaCosteOT {
 		// Assert
 
 		assertEquals(resultado, resultadoEsperado, 
-				"(CP125) La distribuci髇 de la media de coste de las OOTT con valores v醠idos y caso: "
+				"(CP125) La distribuci贸n de la media de coste de las OOTT con valores v谩lidos y caso: "
 				+ "(dias = false, semanas = true, empresaResponsable = null, ordenes = {OT1 (fechaInicio=12/08/2021)}) "
 				+ "no da el resultado esperado.");
 	}
@@ -250,7 +250,7 @@ class Test_P10_DistribucionMediaCosteOT {
 		// Assert
 
 		assertEquals(resultado, resultadoEsperado, 
-				"(CP132) La distribuci髇 de la media de coste de las OOTT con valores v醠idos y caso: "
+				"(CP132) La distribuci贸n de la media de coste de las OOTT con valores v谩lidos y caso: "
 				+ "(dias = false, semanas = true, empresaResponsable = null, ordenes = {OT1 (fechaInicio=12/08/2021), OT2(fechaInicio=27/09/2021)}) "
 				+ "no da el resultado esperado.");
 	}
@@ -275,7 +275,7 @@ class Test_P10_DistribucionMediaCosteOT {
 		// Assert
 
 		assertEquals(resultado, resultadoEsperado, 
-				"(CP127) La distribuci髇 de la media de coste de las OOTT con valores v醠idos y caso: "
+				"(CP127) La distribuci贸n de la media de coste de las OOTT con valores v谩lidos y caso: "
 				+ "(dias = false, semanas = true, empresaResponsable = null, ordenes = {OT1 (fechaInicio=12/08/2021), OT2(fechaInicio=13/08/2021)}) "
 				+ "no da el resultado esperado.");
 	}

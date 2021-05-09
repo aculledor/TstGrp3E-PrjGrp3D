@@ -54,7 +54,7 @@ class Test_P12_modificarProceso {
 
 	@Nested
 	@DisplayName("P12 Modificar Procesos")
-	class p5{
+	class P12{
 		private ArrayList<Integer> incidenciasProceso1;
 		private ArrayList<Integer> incidenciasProceso2;
 		private ArrayList<Integer> ordenesTrabajo;
@@ -86,9 +86,9 @@ class Test_P12_modificarProceso {
 		}
 		
 
-		@DisplayName("CP136-P12")
+		@DisplayName("CP131-P12")
 		@Test
-		void testCP136ModificarProcesos() throws Exception{
+		void testCP131ModificarProceso() throws Exception{
 			//Arrange
 			proc.setId(2);
 			proc.setNombre(null);
@@ -96,59 +96,59 @@ class Test_P12_modificarProceso {
 			//Act
 			
 			//Assert
-			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP136) No se lanza una excepción al enviar un proceso con campos nulos");			
+			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP131) No se lanza una excepción al enviar un proceso con campos nulos");			
 		}
 		
-		@DisplayName("CP137-P12")
+		@DisplayName("CP132-P12")
 		@Test
-		void testCP137ModificarProcesos() throws Exception{
+		void testCP132ModificarProceso() throws Exception{
 			//Arrange
 	
 			//Act
 			GP.modificarProceso(proc);
 			//Assert
-			assertEquals(proc, GP.getProcesos().get(0), "(CP137) No se ha modificado correctamente el proceso");			
+			assertEquals(proc, GP.getProcesos().get(0), "(CP132) No se ha modificado correctamente el proceso");			
 		}
 		
-		@DisplayName("CP138-P12")
+		@DisplayName("CP133-P12")
 		@Test
-		void testCP138ModificarProcesos() throws Exception{
+		void testCP133ModificarProceso() throws Exception{
 			//Arrange
 			proc.setId(3);
 	
 			//Act
 			
 			//Assert
-			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP138) No se lanza una excepción al enviar un proceso con id erroneo");			
+			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP133) No se lanza una excepción al enviar un proceso con id erroneo");			
 		}
 		
-		@DisplayName("CP139-P12")
+		@DisplayName("CP134-P12")
 		@Test
-		void testCP139ModificarProcesos() throws Exception{
+		void testCP134ModificarProceso() throws Exception{
 			//Arrange
 			proc.setNombre("PepeManuelDeTodosLosSantos");
 	
 			//Act
 			
 			//Assert
-			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP139) No se lanza una excepción al enviar un proceso con un nombre no válido");			
+			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP134) No se lanza una excepción al enviar un proceso con un nombre no válido");			
 		}
 		
-		@DisplayName("CP140-P12")
+		@DisplayName("CP135-P12")
 		@Test
-		void testCP140ModificarProcesos() throws Exception{
+		void testCP135ModificarProceso() throws Exception{
 			//Arrange
 			proc.setEstado("Estado erróneo");
 	
 			//Act
 			
 			//Assert
-			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP140) No se lanza una excepción al enviar un proceso con un estado no válido");		
+			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP135) No se lanza una excepción al enviar un proceso con un estado no válido");		
 		}
 		
-		@DisplayName("CP141-P12")
+		@DisplayName("CP136-P12")
 		@Test
-		void testCP141ModificarProcesos() throws Exception{
+		void testCP136ModificarProceso() throws Exception{
 			//Arrange
 			proc.setEstado("sin comenzar");
 			proc.setResponsable("Empresa de exemplo con un nome excesivamente grande");
@@ -156,13 +156,13 @@ class Test_P12_modificarProceso {
 			//Act
 			
 			//Assert
-			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP141) No se lanza una excepción al enviar un proceso con un responsable no válido");			
+			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP136) No se lanza una excepción al enviar un proceso con un responsable no válido");			
 		}
 
 		
-		@DisplayName("CP142-P12")
+		@DisplayName("CP137-P12")
 		@Test
-		void testCP142ModificarProcesos() throws Exception{
+		void testCP137ModificarProceso() throws Exception{
 			//Arrange
 			proc.setEstado("planificado");
 			proc.setServicio("Servicio erróneo");
@@ -170,13 +170,13 @@ class Test_P12_modificarProceso {
 			//Act
 			
 			//Assert
-			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP142) No se lanza una excepción al enviar un proceso con un servicio no válido");			
+			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP137) No se lanza una excepción al enviar un proceso con un servicio no válido");			
 		}
 
 		
-		@DisplayName("CP143-P12")
+		@DisplayName("CP138-P12")
 		@Test
-		void testCP143ModificarProcesos() throws Exception{
+		void testCP138ModificarProceso() throws Exception{
 			//Arrange
 			proc.setEstado("finalizado");
 			proc.setServicio("Suministro");
@@ -185,13 +185,13 @@ class Test_P12_modificarProceso {
 			//Act
 			
 			//Assert
-			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP143) No se lanza una excepción al enviar un proceso con una descripción no válida");			
+			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP138) No se lanza una excepción al enviar un proceso con una descripción no válida");			
 		}
 
 		
-		@DisplayName("CP144-P12")
+		@DisplayName("CP139-P12")
 		@Test
-		void testCP144ModificarProcesos() throws Exception{
+		void testCP139ModificarProceso() throws Exception{
 			//Arrange
 			proc.setServicio("Limpieza");
 			proc.setCosteEstimado(-400f);
@@ -199,90 +199,90 @@ class Test_P12_modificarProceso {
 			//Act
 			
 			//Assert
-			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP144) No se lanza una excepción al enviar un proceso con un coste no válido");			
+			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP139) No se lanza una excepción al enviar un proceso con un coste no válido");			
 		}
 
-		@DisplayName("CP145-P12")
+		@DisplayName("CP140-P12")
 		@Test
-		void testCP145ModificarProcesos() throws Exception{
+		void testCP140ModificarProceso() throws Exception{
 			//Arrange
 			proc.setServicio("Legalidad");
 			//Act
 			GP.modificarProceso(proc);
 
 			//Assert
-			assertEquals(proc, GP.getProcesos().get(0), "(CP145) No se ha modificado correctamente el proceso");			
+			assertEquals(proc, GP.getProcesos().get(0), "(CP140) No se ha modificado correctamente el proceso");			
 		}
 
-		@DisplayName("CP146-P12")
+		@DisplayName("CP141-P12")
 		@Test
-		void testCP146ModificarProcesos() throws Exception{
+		void testCP141ModificarProceso() throws Exception{
 			//Arrange
 			proc.setServicio("Otros");
 			//Act
 			GP.modificarProceso(proc);
 			//Assert
-			assertEquals(proc, GP.getProcesos().get(0), "(CP146) No se ha modificado correctamente el proceso");			
+			assertEquals(proc, GP.getProcesos().get(0), "(CP141) No se ha modificado correctamente el proceso");			
 		}
 
-		@DisplayName("CP147-P12")
+		@DisplayName("CP142-P12")
 		@Test
-		void testCP147ModificarProcesos() throws Exception{
+		void testCP142ModificarProceso() throws Exception{
 			//Arrange
 			proc.setEstado(null);
 	
 			//Act
 			
 			//Assert
-			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP147) No se lanza una excepción al enviar un proceso con campos nulos");			
+			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP142) No se lanza una excepción al enviar un proceso con campos nulos");			
 		}
 
-		@DisplayName("CP148-P12")
+		@DisplayName("CP143-P12")
 		@Test
-		void testCP148ModificarProcesos() throws Exception{
+		void testCP143ModificarProceso() throws Exception{
 			//Arrange
 			proc.setResponsable(null);
 	
 			//Act
 			
 			//Assert
-			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP148) No se lanza una excepción al enviar un proceso con campos nulos");			
+			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP143) No se lanza una excepción al enviar un proceso con campos nulos");			
 		}
 
-		@DisplayName("CP149-P12")
+		@DisplayName("CP144-P12")
 		@Test
-		void testCP149ModificarProcesos() throws Exception{
+		void testCP144ModificarProceso() throws Exception{
 			//Arrange
 			proc.setServicio(null);
 	
 			//Act
 			
 			//Assert
-			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP149) No se lanza una excepción al enviar un proceso con campos nulos");			
+			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP144) No se lanza una excepción al enviar un proceso con campos nulos");			
 		}
 
-		@DisplayName("CP150-P12")
+		@DisplayName("CP145-P12")
 		@Test
-		void testCP150ModificarProcesos() throws Exception{
+		void testCP145ModificarProceso() throws Exception{
 			//Arrange
 			proc.setDescripcion(null);
 	
 			//Act
 			
 			//Assert
-			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP150) No se lanza una excepción al enviar un proceso con campos nulos");			
+			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP145) No se lanza una excepción al enviar un proceso con campos nulos");			
 		}
 
-		@DisplayName("CP151-P12")
+		@DisplayName("CP146-P12")
 		@Test
-		void testCP151ModificarProcesos() throws Exception{
+		void testCP146ModificarProceso() throws Exception{
 			//Arrange
 			proc.setCosteEstimado(null);
 	
 			//Act
 			
 			//Assert
-			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP151) No se lanza una excepción al enviar un proceso con campos nulos");			
+			assertThrows(Exception.class,()->GP.modificarProceso(proc), "(CP146) No se lanza una excepción al enviar un proceso con campos nulos");			
 		}
 	}
 }

@@ -89,9 +89,9 @@ class Test_P5 {
 		@DisplayName("Entradas Válidas ")
 		class EntradasValidas{
 			
-			@DisplayName("CP081-P5: datos correctos")
+			@DisplayName("CP078-P5: datos correctos")
 			@Test
-			void testCP081DesvincularIncidencias() throws Exception{
+			void testCP078DesvincularIncidencias() throws Exception{
 				//Arrange
 				incidenciasDesvincular.add(1);
 				incidenciasDesvincular.add(2);
@@ -100,8 +100,8 @@ class Test_P5 {
 				
 				//Assert
 				assertAll(
-						()->{assertDoesNotThrow(()->GP.desvincularIncidencias(1,incidenciasDesvincular),"(CP81) La desvinculación falla y devuelve una excepción");},
-						()->{assertEquals(resultadoEsperado,GP.getProcesos().get(0).getIncidencias(), "(CP81) La incidencia no se ha desvinculado correctamente");}
+						()->{assertDoesNotThrow(()->GP.desvincularIncidencias(1,incidenciasDesvincular),"(CP78) La desvinculación falla y devuelve una excepción");},
+						()->{assertEquals(resultadoEsperado,GP.getProcesos().get(0).getIncidencias(), "(CP78) La incidencia no se ha desvinculado correctamente");}
 						);			
 				}
 		}
@@ -110,66 +110,66 @@ class Test_P5 {
 		@DisplayName("Entradas No Válidas")
 		class EntradasNoValidas{
 			
-			@DisplayName("CP082-P5: idProceso = null")
+			@DisplayName("CP079-P5: idProceso = null")
+			@Test
+			void testCP079DesvincularIncidencias() throws Exception{
+				//Arrange
+				incidenciasDesvincular.add(1);
+				incidenciasDesvincular.add(2);
+				//Act
+				
+				//Assert
+				assertThrows(Exception.class, ()->GP.desvincularIncidencias(null,incidenciasDesvincular), "(CP79) La llamada a la función con datos erroneos no lanza una excepción");
+					
+				}
+			
+			@DisplayName("CP080-P5: idProceso negativo")
+			@Test
+			void testCP080DesvincularIncidencias() throws Exception{
+				//Arrange
+				incidenciasDesvincular.add(1);
+				incidenciasDesvincular.add(2);
+				//Act
+				
+				//Assert
+				assertThrows(Exception.class, ()->GP.desvincularIncidencias(-1,incidenciasDesvincular), "(CP80) La llamada a la función con datos erroneos no lanza una excepción");
+					
+				}
+			
+			@DisplayName("CP081-P5: incidenciasDesvincular vacío")
+			@Test
+			void testCP081DesvincularIncidencias() throws Exception{
+				//Arrange
+				
+				//Act
+				
+				//Assert
+				assertThrows(Exception.class, ()->GP.desvincularIncidencias(1,incidenciasDesvincular), "(CP81) La llamada a la función con datos erroneos no lanza una excepción");
+					
+				}
+			
+			@DisplayName("CP082-P5: incidenciasDesvincular = null")
 			@Test
 			void testCP082DesvincularIncidencias() throws Exception{
-				//Arrange
-				incidenciasDesvincular.add(1);
-				incidenciasDesvincular.add(2);
-				//Act
-				
-				//Assert
-				assertThrows(Exception.class, ()->GP.desvincularIncidencias(null,incidenciasDesvincular), "(CP82) La llamada a la función con datos erroneos no lanza una excepción");
-					
-				}
-			
-			@DisplayName("CP083-P5: idProceso negativo")
-			@Test
-			void testCP083DesvincularIncidencias() throws Exception{
-				//Arrange
-				incidenciasDesvincular.add(1);
-				incidenciasDesvincular.add(2);
-				//Act
-				
-				//Assert
-				assertThrows(Exception.class, ()->GP.desvincularIncidencias(-1,incidenciasDesvincular), "(CP83) La llamada a la función con datos erroneos no lanza una excepción");
-					
-				}
-			
-			@DisplayName("CP084-P5: incidenciasDesvincular vacío")
-			@Test
-			void testCP084DesvincularIncidencias() throws Exception{
-				//Arrange
-				
-				//Act
-				
-				//Assert
-				assertThrows(Exception.class, ()->GP.desvincularIncidencias(1,incidenciasDesvincular), "(CP84) La llamada a la función con datos erroneos no lanza una excepción");
-					
-				}
-			
-			@DisplayName("CP085-P5: incidenciasDesvincular = null")
-			@Test
-			void testCP085DesvincularIncidencias() throws Exception{
 				//Arrange
 
 				//Act
 				
 				//Assert
-				assertThrows(Exception.class, ()->GP.desvincularIncidencias(1,null), "(CP85) La llamada a la función con datos erroneos no lanza una excepción");
+				assertThrows(Exception.class, ()->GP.desvincularIncidencias(1,null), "(CP82) La llamada a la función con datos erroneos no lanza una excepción");
 					
 				}
 			
-			@DisplayName("CP086-P5: incidenciasDesvincular con algún elemento negativo")
+			@DisplayName("CP083-P5: incidenciasDesvincular con algún elemento negativo")
 			@Test
-			void testCP086DesvincularIncidencias() throws Exception{
+			void testCP083DesvincularIncidencias() throws Exception{
 				//Arrange
 				incidenciasDesvincular.add(1);
 				incidenciasDesvincular.add(-2);
 				//Act
 				
 				//Assert
-				assertThrows(Exception.class, ()->GP.desvincularIncidencias(1,incidenciasDesvincular), "(CP86) La llamada a la función con datos erroneos no lanza una excepción");
+				assertThrows(Exception.class, ()->GP.desvincularIncidencias(1,incidenciasDesvincular), "(CP83) La llamada a la función con datos erroneos no lanza una excepción");
 					
 				}
 		}
@@ -179,7 +179,7 @@ class Test_P5 {
 		@DisplayName("Rendimiento")
 		class Rendimiento{
 			@Test
-			@DisplayName("Prueba de rendimiento (Caso válido CP81)")
+			@DisplayName("Prueba de rendimiento (Caso válido CP78)")
 			void P1_CrearOT_CrearProceso_CV() {
 				//Arrange
 				incidenciasDesvincular.add(1);
@@ -189,7 +189,7 @@ class Test_P5 {
 				//Act + Assert
 				
 				assertTimeoutPreemptively(Duration.ofSeconds(2), ()->{GP.desvincularIncidencias(1,incidenciasDesvincular);},
-						"(CP81 - Rendimiento) La desvinculación de la incidencia supera el límite temporal de respuesta requerido.");
+						"(CP78 - Rendimiento) La desvinculación de la incidencia supera el límite temporal de respuesta requerido.");
 			}
 		}
 	}

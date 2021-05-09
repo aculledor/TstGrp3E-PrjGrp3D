@@ -67,7 +67,7 @@ class Test_P11_AcumuladoProceso {
 
 	@Test
 	@DisplayName("Test_P11_AcumuladoProceso: Prueba de caja blanca CP128")
-	void CP133_P11_acumuladoProceso() throws Exception{
+	void CP128_P11_acumuladoProceso() throws Exception{
 		assertThrows(Exception.class, () -> GOT.acumuladoProceso(null),
 				"(CP128) No lanza excepcion al recibir un identificador de proceso nulo.");
 			
@@ -75,7 +75,7 @@ class Test_P11_AcumuladoProceso {
 
 	@Test
 	@DisplayName("Test_P11_AcumuladoProceso: Prueba de caja blanca CP129")
-	void CP134_P11_acumuladoProceso() throws Exception{
+	void CP129_P11_acumuladoProceso() throws Exception{
 
 		assertThrows(Exception.class, () -> GOT.acumuladoProceso(1),
 				"(CP129) No lanza excepcion al introducir un número de proceso que no pertenece a ninguna OT.");
@@ -84,7 +84,7 @@ class Test_P11_AcumuladoProceso {
 
 	@Test
 	@DisplayName("Test_P11_AcumuladoProceso: Prueba de caja blanca CP130")
-	void CP135_P11_acumuladoProceso() {
+	void CP130_P11_acumuladoProceso() {
 		GOT.getOrdenesTrabajo().remove(0);
 				
 		GOT.getOrdenesTrabajo().add(ordenesTrabajo.get(1));

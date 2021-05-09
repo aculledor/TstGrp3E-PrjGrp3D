@@ -102,9 +102,9 @@ class Test_P3_P4 {
 		@DisplayName("Entradas Válidas ")
 		class EntradasValidas{
 			
-			@DisplayName("CP072-P3: entrada vacía")
+			@DisplayName("CP070-P3: entrada vacía")
 			@Test
-			void testCP072VisualizarOOTT() throws Exception{
+			void testCP070VisualizarOOTT() throws Exception{
 				//Arrange
 				resultadoEsperado.add(OOTT1);
 				resultadoEsperado.add(OOTT2);
@@ -115,12 +115,12 @@ class Test_P3_P4 {
 				//Act
 				
 				//Assert
-				assertEquals(resultadoEsperado,GOT.filtrarOT(filtro),"(CP72) El filtado devuelve valores inesperados");
+				assertEquals(resultadoEsperado,GOT.filtrarOT(filtro),"(CP70) El filtado devuelve valores inesperados");
 			}
 			
-			@DisplayName("CP073-P3: valores correctos")
+			@DisplayName("CP071-P3: valores correctos")
 			@Test
-			void testCP073VisualizarOOTT() throws Exception{
+			void testCP071VisualizarOOTT() throws Exception{
 				//Arrange
 				filtro.put("empresa", "Bloques Cando");
 				filtro.put("fechaInicio", new GregorianCalendar(2020, 0, 10).getTime());
@@ -132,7 +132,7 @@ class Test_P3_P4 {
 				//Act
 				
 				//Assert
-				assertEquals(resultadoEsperado,GOT.filtrarOT(filtro),"(CP73) El filtado devuelve valores inesperados");
+				assertEquals(resultadoEsperado,GOT.filtrarOT(filtro),"(CP71) El filtado devuelve valores inesperados");
 			}
 		}
 
@@ -140,20 +140,20 @@ class Test_P3_P4 {
 		@DisplayName("Entradas No Válidas")
 		class EntradasNoValidas{
 			
-			@DisplayName("CP074-P3: filtro null")
+			@DisplayName("CP072-P3: filtro null")
 			@Test
-			void testCP074VisualizarOOTT() throws Exception{
+			void testCP072VisualizarOOTT() throws Exception{
 				//Arrange
 				
 				//Act
 				
 				//Assert
-				assertNull(GOT.filtrarOT(null),"(CP74) El filtado devuelve un valor no nulo");
+				assertNull(GOT.filtrarOT(null),"(CP72) El filtado devuelve un valor no nulo");
 			}
 			
-			@DisplayName("CP075-P3: filtro con clave no válida")
+			@DisplayName("CP073-P3: filtro con clave no válida")
 			@Test
-			void testCP075VisualizarOOTT() throws Exception{
+			void testCP073VisualizarOOTT() throws Exception{
 				//Arrange
 				filtro.put("empresa", "Bloques Cando");
 				filtro.put("AGAGAGAG", new GregorianCalendar(2020, 0, 10).getTime());
@@ -161,12 +161,12 @@ class Test_P3_P4 {
 				//Act
 				
 				//Assert
-				assertNull(GOT.filtrarOT(filtro),"(CP75) El filtado devuelve un valor no nulo");
+				assertNull(GOT.filtrarOT(filtro),"(CP73) El filtado devuelve un valor no nulo");
 			}
 			
-			@DisplayName("CP076-P3: filtro con valor no válido")
+			@DisplayName("CP074-P3: filtro con valor no válido")
 			@Test
-			void testCP076VisualizarOOTT() throws Exception{
+			void testCP074VisualizarOOTT() throws Exception{
 				//Arrange
 				filtro.put("empresa", "Bloques Cando");
 				filtro.put("estado", new GregorianCalendar(2020, 0, 10).getTime());
@@ -174,7 +174,7 @@ class Test_P3_P4 {
 				//Act
 				
 				//Assert
-				assertNull(GOT.filtrarOT(filtro),"(CP76) El filtado devuelve un valor no nulo");
+				assertNull(GOT.filtrarOT(filtro),"(CP74) El filtado devuelve un valor no nulo");
 			}
 		}
 
@@ -182,7 +182,7 @@ class Test_P3_P4 {
 		@DisplayName("Rendimiento")
 		class Rendimiento{
 			@Test
-			@DisplayName("Prueba de rendimiento (Caso válido CP72)")
+			@DisplayName("Prueba de rendimiento (Caso válido CP70)")
 			void P1_CrearOT_CrearProceso_CV() {
 				//Arrange
 				resultadoEsperado.add(OOTT1);
@@ -194,7 +194,7 @@ class Test_P3_P4 {
 				//Act + Assert
 				
 				assertTimeoutPreemptively(Duration.ofSeconds(2), ()->{GOT.filtrarOT(filtro);},
-						"(CP72 - Rendimiento) El filtrado supera el límite temporal de respuesta requerido.");
+						"(CP70 - Rendimiento) El filtrado supera el límite temporal de respuesta requerido.");
 			}
 		}
 	}
@@ -247,9 +247,9 @@ class Test_P3_P4 {
 		@DisplayName("Entradas Válidas ")
 		class EntradasValidas{
 			
-			@DisplayName("CP077-P4: valores correctos")
+			@DisplayName("CP075-P4: valores correctos")
 			@Test
-			void testCP077VisualizarOOTT() throws Exception{
+			void testCP075VisualizarOOTT() throws Exception{
 				//Arrange
 				OrdenTrabajo ordenTrabajo=new OrdenTrabajo(1, 78.45f, "Texto de ejemplo", 30, "NombreEmpresa", "iniciado", new GregorianCalendar(2020, 0, 10).getTime(), "Material necesario", personal, presupuestos);
 				resultadoEsperado.add(ordenTrabajo);
@@ -261,8 +261,8 @@ class Test_P3_P4 {
 				
 				//Assert
 				assertAll(
-						()->{assertDoesNotThrow(()->GOT.modificarOT(ordenTrabajo),"(CP77) La modifacación falla y devuelve una excepción");},
-						()->{assertEquals(resultadoEsperado,GOT.filtrarOT(filtro), "(CP77) La orden de trabajo no se ha modificado correctamente");}
+						()->{assertDoesNotThrow(()->GOT.modificarOT(ordenTrabajo),"(CP75) La modifacación falla y devuelve una excepción");},
+						()->{assertEquals(resultadoEsperado,GOT.filtrarOT(filtro), "(CP75) La orden de trabajo no se ha modificado correctamente");}
 						);
 			}
 		}
@@ -271,27 +271,27 @@ class Test_P3_P4 {
 		@DisplayName("Entradas No Válidas")
 		class EntradasNoValidas{
 
-			@DisplayName("CP078-P4: ordenTrabajo = null")
+			@DisplayName("CP076-P4: ordenTrabajo = null")
 			@Test
-			void testCP078VisualizarOOTT() throws Exception{
+			void testCP076VisualizarOOTT() throws Exception{
 				//Arrange
 				
 				//Act
 				
 				//Assert
-				assertThrows(Exception.class, ()->GOT.modificarOT(null),"(CP78) La modificación incorrecta no devuelve una excepción");
+				assertThrows(Exception.class, ()->GOT.modificarOT(null),"(CP76) La modificación incorrecta no devuelve una excepción");
 			}
 			
-			@DisplayName("CP079-P4: coste negativo")
+			@DisplayName("CP077-P4: coste negativo")
 			@Test
-			void testCP079VisualizarOOTT() throws Exception{
+			void testCP077VisualizarOOTT() throws Exception{
 				//Arrange
 				OrdenTrabajo ordenTrabajo=new OrdenTrabajo(1, -78.45f, "Texto de ejemplo", 30, "NombreEmpresa", "iniciado", new GregorianCalendar(2020, 0, 10).getTime(), "Material necesario", personal, presupuestos);
 				
 				//Act
 				
 				//Assert
-				assertThrows(Exception.class, ()->GOT.modificarOT(ordenTrabajo),"(CP79) La modificación incorrecta no devuelve una excepción");
+				assertThrows(Exception.class, ()->GOT.modificarOT(ordenTrabajo),"(CP77) La modificación incorrecta no devuelve una excepción");
 			}
 			
 		}
@@ -300,7 +300,7 @@ class Test_P3_P4 {
 		@DisplayName("Rendimiento")
 		class Rendimiento{
 			@Test
-			@DisplayName("Prueba de rendimiento (Caso válido CP77)")
+			@DisplayName("Prueba de rendimiento (Caso válido CP75)")
 			void P1_CrearOT_CrearProceso_CV() {
 				// Arrange
 
@@ -313,7 +313,7 @@ class Test_P3_P4 {
 				//Act + Assert
 				
 				assertTimeoutPreemptively(Duration.ofSeconds(2), ()->{GOT.modificarOT(ordenTrabajo);},
-						"(CP77 - Rendimiento) La modificación de la orden de trabajo supera el límite temporal de respuesta requerido.");
+						"(CP75 - Rendimiento) La modificación de la orden de trabajo supera el límite temporal de respuesta requerido.");
 			}
 		}
 	}
