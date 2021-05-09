@@ -2,6 +2,7 @@ package SubsistemaGestionProcesos;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
@@ -133,6 +134,41 @@ class Test_P2_Visualizar_Procesos {
 			
 			// Act + Assert
 			assertEquals(expectedResult, GP.filtrarProcesos(filtros), "(CP066) No devuelve el set de datos correctamente");
+		}
+
+		@Test
+		@DisplayName("CP065_P2_VisualizarProcesos: Rendimiento")
+		void testCP65Rendimiento() throws Exception{
+			//Arrange
+			ArrayList<Integer> auxList = new ArrayList<>();
+			auxList.add(35);
+			
+			ArrayList<Integer> auxList_2 = new ArrayList<>();
+			auxList_2.add(1);
+			GP.crearProceso("proceso_1", "sin comenzar", "Bloques Cando", "Suministro", "Texto de ejemplo", 100.87f, auxList, auxList_2);
+
+			auxList = new ArrayList<>();
+			auxList.add(2);
+			GP.crearProceso("proceso_2", "planificado", "USC", "Limpieza", "Texto de ejemplo", 500f, auxList, new ArrayList<>());
+			
+			//Expected result
+			// First process
+			ArrayList<Proceso> expectedResult = new ArrayList<Proceso>();
+			ArrayList<Incidencia> auxInc = new ArrayList<Incidencia>();
+			ArrayList<OrdenTrabajo> auxOT = new ArrayList<OrdenTrabajo>();
+			auxInc.add(new Incidencia(35, null, null, null, null, null, null, null));
+			auxOT.add(new OrdenTrabajo(1, null, null, null, null, null, null, null, null, null));
+			expectedResult.add(new Proceso(1, 100.87f, "Texto de ejemplo", "sin comenzar", "proceso_1", "Bloques Cando", "Suministro", auxInc, auxOT));
+			
+			//Second process
+			auxInc = new ArrayList<Incidencia>();
+			auxInc.add(new Incidencia(2, null, null, null, null, null, null, null));
+			expectedResult.add(new Proceso(2, 500f, "Texto de ejemplo", "planificado", "proceso_2", "USC", "Limpieza", auxInc, new ArrayList<>()));
+			
+			
+			// Act + Assert
+			assertTimeoutPreemptively(Duration.ofSeconds(2), ()->GP.filtrarProcesos(filtros), "(CP65) La realización del proceso supera el límite temporal de respuesta requerido");
+			
 		}
 
 	}

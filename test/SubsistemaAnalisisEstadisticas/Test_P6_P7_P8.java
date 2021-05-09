@@ -196,7 +196,7 @@ class Test_P6_P7_P8 {
 			@DisplayName("CP088_P8_Rendimiento: valores válidos y tiempo < 2s")
 			void testCP88Rendimiento() throws Exception{
 				// Assert
-				assertTimeoutPreemptively(Duration.ofSeconds(2), ()->GE.distribucionOT(true, false, "USC"), "(CP88) La realziación del proceso supera el límite temporal de respuesta requerido");
+				assertTimeoutPreemptively(Duration.ofSeconds(2), ()->GE.distribucionOT(true, false, "USC"), "(CP88) La realización del proceso supera el límite temporal de respuesta requerido");
 			}
 			
 		}
